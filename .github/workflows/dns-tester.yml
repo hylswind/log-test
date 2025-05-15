@@ -1,0 +1,24 @@
+name: DNS logger Tester
+
+on:
+  workflow_dispatch:
+    inputs:
+      SUBDOMAIN:
+        required: true
+        type: string
+      LOG_DOWNLOAD_URL:
+        required: false
+        type: string
+
+jobs:
+  call-logger:
+    permissions:
+      id-token: write
+      attestations: write
+    uses: opendeploy-org/dns-logger/.github/workflows/dns-logger.yml@latest
+    with:
+      SUBDOMAIN: ${{ inputs.SUBDOMAIN }}
+      LOG_DOWNLOAD_URL: ${{ inputs.LOG_DOWNLOAD_URL }}
+    secrets:
+      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
