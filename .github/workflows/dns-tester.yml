@@ -15,7 +15,7 @@ jobs:
     permissions:
       id-token: write
       attestations: write
-    uses: opendeploy-org/dns-logger/.github/workflows/dns-logger.yml@main
+    uses: opendeploy-org/dns-logger/.github/workflows/ods-dns-logger.yml@main
     with:
       SUBDOMAIN: ${{ inputs.SUBDOMAIN }}
       LOG_DOWNLOAD_URL: ${{ inputs.LOG_DOWNLOAD_URL }}
