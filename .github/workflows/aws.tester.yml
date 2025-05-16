@@ -1,0 +1,20 @@
+name: AWS logger Tester
+
+on:
+  workflow_dispatch:
+    inputs:
+      LOG_DOWNLOAD_URL:
+        required: false
+        type: string
+
+jobs:
+  call-logger:
+    permissions:
+      id-token: write
+      attestations: write
+    uses: opendeploy-org/ods-aws-logger/.github/workflows/ods-aws-logger.yml@main
+    with:
+      LOG_DOWNLOAD_URL: ${{ inputs.LOG_DOWNLOAD_URL }}
+    secrets:
+      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
