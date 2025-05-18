@@ -12,7 +12,7 @@ jobs:
     permissions:
       id-token: write
       attestations: write
-    uses: hylswind/ods-aws-logger/.github/workflows/ods-aws-logger.yml@main
+    uses: opendeploy-org/ods-aws-logger/.github/workflows/ods-aws-logger.yml@main
     with:
       LOG_DOWNLOAD_URL: ${{ inputs.LOG_DOWNLOAD_URL }}
     secrets:
